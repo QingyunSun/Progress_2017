@@ -1,0 +1,23 @@
+\subsection{Problem formulation}
+
+We focus on the generating model that $\mb y = \mb a_0 \circonv \mb x_0$, where $\mb a_0 \in \R^k$ and $\mb x_0 \in \R^n$. Here $\circonv$ denotes the circular convolution. This helps alleviate the secondary boundary issue for finite-length signals. Here we also assume 
+\begin{itemize}
+\item $\mb a_0$ is \emph{invertible}. By ``invertible'', we mean $\wh{\mb a_0}$ does not contain zero. In this case, one can always find an inverter $\mb b_0 \in \R^n$, such that $\mb b_0 \circonv \mb y_0 = \mb x_0$. In fact, one such inverter is given explicitly by $\mc F^{-1} \paren{1./\wh{\mb a_0}}$.  \js{justify this assumption by image debluring (possibly also BSD data), the problem when this assumption is vastly violated - super-resolution might be needed; absorbing previous generic random subspace models. }
+\item $\mb x_0$ is \emph{sparse}. Specifically, we assume $\mb x_0 =\theta_0 z_0$, where $ \theta_0 \sim_{iid} \mathrm{Ber} \paren{p}$ for $p \in \paren{0, 1}$, $z_0$ is standard Gaussian random variable. 
+\end{itemize}
+
+\js{show the model is identifiable; the previous identifiability results seem not directly applicable here, as they pertain to sparsity in generic bases or frames. Qysun: The model is only identifiable up t o translation. }
+
+\js{Is the inverter unique with generic probability assumption on $\mb x_0$?}
+
+\js{Motivate the $\ell^1$ regularized LP formulation; discuss additional sparsity assumption on the inverter}
+
+==================================
+
+Consider that we have an observation vector $y$, and we want to look for a filter $b$, such that the $y*b$ is the one with the smallest loss function $L(y*b)$, for a class of $b$ away from zero.  We define the class of $b$ with a regularizer $R(b)$, and a constraint $b_0=1$ to fix the first entry of $b$.
+
+We want to find $b \in \mathbb{R}^n$ such that 
+ \begin{eqnarray*}
+\underset{b\in \mathbb{R}^n}{\mbox{minimize}}& L(y*b)+R(b) ,\\
+\mbox{subject to}& b_0=1.
+ \end{eqnarray*}
