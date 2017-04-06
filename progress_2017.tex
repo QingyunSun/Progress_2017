@@ -1,30 +1,47 @@
 \documentclass[12pt]{article}
-\usepackage{graphicx,amsmath,amsfonts,amscd,amssymb,bm,url,color,latexsym}
-\usepackage{fullpage}
-\usepackage[small,bf]{caption}
-\usepackage{verbatim}
+\usepackage{fullpage,graphicx,psfrag,url,amsmath,amsthm,algorithm}
 \usepackage{algorithmicx,algpseudocode}
-\usepackage{url,algorithm,amsmath,amsthm}
-\input defs.tex
-\usepackage{subcaption}
-
-% pagebreak for long equations
-\allowdisplaybreaks  
-
+\usepackage{natbib}
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,%
-    citecolor=blue,%
-    filecolor=blue,%
-    linkcolor=blue,%
-    urlcolor=blue
-}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\input defs
 
-\title{Generalized Blind Deconvolution}
+\title{\large \bf Generalized Blind Deconvolution\\
+\small Samsung Global Research Outreach Program 2017\\
+\small Progress Report}
+\author{Boyd Group, Stanford University}
+\date{}
 
-\author{Qingyun Sun\and Stephen Boyd}
+\bibliographystyle{alpha}
+
 \begin{document}
 \maketitle
+
+\section{Proposal Identification}
+\begin{description}
+\item[Title of Proposal]\hfill\\ Generalized Blind Deconvolution
+\item[Subject Theme] Machine Learning and Recognition
+\item[Subject Title] Other
+\item[Principal Investigator] \hfill\\
+Stephen P. Boyd\\
+Samsung Professor in the School of Engineering\\
+Professor, Information Systems Laboratory, Department of Electrical Engineering\\
+Professor (by courtesy), Department of Management Science and Engineering\\
+Professor (by courtesy), Department of Computer Science\\
+Institute for Computational and Mathematical Engineering\\
+Stanford University\\
+Packard 254, Stanford, CA 94305\\
+Tel: (650) 723-0002\\
+Fax: (650) 723-8473\\
+\url{boyd@stanford.edu}\\
+\url{http://www.stanford.edu/~boyd/}\\
+\item[Co-PI Information] None.
+\item[Joint Proposal] No.
+\end{description}
+
+\newpage
+
 
 \section{Generalized blind deconvolution}
 \emph{Blind deconvolution} is the problem of recovering a kernel and a signal from 
@@ -137,7 +154,7 @@ variables, $\tilde{v}^k$ are scaled dual variables.
 
 The proximal operator of $f$ is
 \[
-	\mathrm{prox}_{f}(v) = \argmin_{v'}\Big(f(v') + (\rho/2) \vnorm{v' - v}_2^2\Big),
+    \mathrm{prox}_{f}(v) = \argmin_{v'}\Big(f(v') + (\rho/2) \vnorm{v' - v}_2^2\Big),
 \]
 where $\rho>0$ is the proximal parameter. Here $\mathrm{prox}_{f}$ equals the sum of the proximal operators $\mathrm{prox}_{l},\mathrm{prox}_{R},\mathrm{prox}_{S}$.
 
@@ -249,7 +266,7 @@ with variables $w\in \mathcal{W}\subset \reals^{n}$.
 \begin{array}{ll}
 \mbox{minimize}   &  \|Wy\|_1   \\
 \mbox{subject to}  & \frac{1}{n}\mathrm{tr}(W)=1, \\
-				 &	W \mbox{ is a circulant matrix,}
+                 &  W \mbox{ is a circulant matrix,}
 \end{array}
 \EEQ
 with variables $W\in \reals^{n\times n}$.
@@ -278,15 +295,20 @@ The generalized blind deconvolution model can be viewed an autoencoder using con
 Input of the neural network is $y$, and $k$ is the convolutional kernel to learn, $x$ is the hidden state, $z = k*x$ is the output of autoencoder, 
 and $L(y,z)$ is the reconstruction error in this autoencoder. We can extend the model in similar fashion, then we will get a multi-layer convolutional autoencoder.
 
- 
 
 
+\section{Samsung contacts}
+
+% Professor Boyd came to visit Samsung in November 2014, giving several talks.
+% He has hosted several visits, including a technical visit on the GRO topic with
+% Jae-Joon Han in April 2015.
+
+%\newpage
+%\section{Appendix}
+%\pagenumbering{gobble}
 
 \bibliographystyle{alpha}
 \bibliography{gen_blind_deconv}
 
 \end{document}
-
-
-
 
